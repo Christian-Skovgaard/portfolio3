@@ -2,7 +2,7 @@
 
 //make correct number ✅
 //make input a let in js
-//compare imputted number and correct number
+//compare imputted number and correct number ✅
 //make if-statement that increase if not correct
 //make highscore system work
 //make game reset
@@ -16,6 +16,18 @@ const correctNumber =getRandomNumber()
 console.log(correctNumber)
 
 const playerInputField =  document.querySelector('input')
-const guessButton = document.querySelector('.')
+const checkButton = document.querySelector('.guess')
+let isTrue = false
 
-//button class is "guess"
+function checkIfCorrect (Guess, correctNumber) {
+    console.log(Guess)
+    console.log(correctNumber)
+    if (Number(Guess) === Number(correctNumber)) {
+        isTrue = true
+    }
+    else isTrue = false
+}
+
+checkButton.addEventListener('click', checkIfCorrect(playerInputField.value, correctNumber))
+
+console.log(isTrue)
