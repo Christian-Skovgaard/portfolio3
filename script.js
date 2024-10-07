@@ -2,9 +2,9 @@
 
 //make correct number ✅
 //compare imputted number and correct number ✅
-//make if-statement that increase if not correct
+//make if-statement that increase if not correct ✅
 //make highscore system work ✅
-//make game reset
+//make game reset ✅
 
 //assign correct answer
 function getRandomNumber () {
@@ -44,6 +44,7 @@ function checkIfCorrect () {
     else {
         isCorrect = false
         scoreField.textContent = scoreCount
+        updateHistory(guess)
     }
     console.log(isCorrect)
 }
@@ -64,17 +65,26 @@ function reset () {
     scoreCount = 0
     scoreField.textContent = scoreCount
     awnserBox.textContent = '?'
+    clearHistory()
 }
 
 againButton.addEventListener('click', reset)
 
 
 //History functionality
-const historyArr = [23, 29]
-document.querySelector('#history').insertAdjacentHTML()
-function updateHistory (newGuess) {
-    historyArr.push(newGuess)
-    historyItems.textContent = historyItems
-}
 
-historyItems.textContent = historyItems
+//creating elements
+let historyArr = []
+const historySection = document.querySelector('.history')
+const li = document.createElement('li')
+historySection.append(li)
+
+//functions
+function updateHistory (guess) {
+    historyArr.push(guess)
+    li.textContent = historyArr
+}
+const clearHistory = () => {
+    historyArr = []
+    li.textContent = historyArr
+}
