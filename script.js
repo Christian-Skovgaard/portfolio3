@@ -56,9 +56,9 @@ function updateHighscore (score) {
 }
 
 checkButton.addEventListener('click', checkIfCorrect)
-againButton.addEventListener('click', reset)
 
 
+//Again!-button function
 function reset () {
     correctNumber = getRandomNumber()
     scoreCount = 0
@@ -66,4 +66,15 @@ function reset () {
     awnserBox.textContent = '?'
 }
 
+againButton.addEventListener('click', reset)
 
+
+//History functionality
+const historyArr = [23, 29]
+document.querySelector('#history').insertAdjacentHTML()
+function updateHistory (newGuess) {
+    historyArr.push(newGuess)
+    historyItems.textContent = historyItems
+}
+
+historyItems.textContent = historyItems
