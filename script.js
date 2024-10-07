@@ -13,21 +13,21 @@ function getRandomNumber () {
 }
 const correctNumber =getRandomNumber()
 
-console.log(correctNumber)
-
 const playerInputField =  document.querySelector('input')
-const checkButton = document.querySelector('.guess')
-let isTrue = false
+const checkButton = document.querySelector(".check")
 
-function checkIfCorrect (Guess, correctNumber) {
-    console.log(Guess)
-    console.log(correctNumber)
-    if (Number(Guess) === Number(correctNumber)) {
-        isTrue = true
+
+let isCorrect = false
+
+function checkIfCorrect () {
+    let guess = playerInputField.value
+    if (Number(correctNumber) === Number(guess)) {
+        isCorrect = true
     }
-    else isTrue = false
+    else {
+        isCorrect = false
+    }
+    console.log(isCorrect)
 }
 
-checkButton.addEventListener('click', checkIfCorrect(playerInputField.value, correctNumber))
-
-console.log(isTrue)
+checkButton.addEventListener('click', checkIfCorrect)
